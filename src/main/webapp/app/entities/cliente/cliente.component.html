@@ -1,0 +1,69 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="mitiendaApp.cliente.home.title">Clientes</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-cliente" [routerLink]="['/cliente/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="mitiendaApp.cliente.home.createLabel">
+            Create a new Cliente
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="clientes?.length === 0">
+        <span jhiTranslate="mitiendaApp.cliente.home.notFound">No clientes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="clientes?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="mitiendaApp.cliente.nombre">Nombre</span></th>
+                    <th scope="col" ><span jhiTranslate="mitiendaApp.cliente.direccion">Direccion</span></th>
+                    <th scope="col" ><span jhiTranslate="mitiendaApp.cliente.titulo">Titulo</span></th>
+                    <th scope="col" ><span jhiTranslate="mitiendaApp.cliente.rut">Rut</span></th>
+                    <th scope="col" ><span jhiTranslate="mitiendaApp.cliente.telefono">Telefono</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cliente of clientes ;trackBy: trackId">
+                    <td><a [routerLink]="['/cliente', cliente.id, 'view']">{{ cliente.id }}</a></td>
+                    <td>{{ cliente.nombre }}</td>
+                    <td>{{ cliente.direccion }}</td>
+                    <td>{{ cliente.titulo }}</td>
+                    <td>{{ cliente.rut }}</td>
+                    <td>{{ cliente.telefono }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/cliente', cliente.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/cliente', cliente.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(cliente)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

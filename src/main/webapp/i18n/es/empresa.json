@@ -1,0 +1,26 @@
+{
+  "mitiendaApp": {
+    "empresa": {
+      "home": {
+        "title": "Empresas",
+        "createLabel": "Crear nuevo Empresa",
+        "createOrEditLabel": "Crear o editar Empresa",
+        "notFound": "Ningún Empresas encontrado"
+      },
+      "created": "Un nuevo Empresa ha sido creado con el identificador {{ param }}",
+      "updated": "Un Empresa ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Empresa ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Empresa {{ id }}?"
+      },
+      "detail": {
+        "title": "Empresa"
+      },
+      "nombre": "Nombre",
+      "direccion": "Direccion",
+      "titulo": "Titulo",
+      "rut": "Rut",
+      "telefono": "Telefono"
+    }
+  }
+}
